@@ -12,16 +12,16 @@
          </tr>
       </thead>
       <tbody>
-               @foreach ($projects as $project)
-                   <tr>
-                     <td>{{project->id}}</td>
-                     <td>{{project->name}}</td>
-                     <td>{{project->customer}}</td>
-                     <td>
-                        <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-success">dettagli</a>
-                     </td>
-                   </tr>
-               @endforeach
+            @foreach ($projects as $project)
+               <tr>
+                  <td>{{$project->id}}</td>
+                  <td>{{$project->name}}</td>
+                  <td>{{$project->customer}}</td>
+                  <td>
+                     <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-success">dettagli</a>
+                  </td>
+               </tr>
+            @endforeach
       </tbody>
    </table>
 @endsection
