@@ -2,6 +2,7 @@
 
 @section('content')
    <h1>lista progetti</h1>
+   <a href="{{route('admin.projects.create')}}" class="btn btn-success">Crea Progetto</a>
    <table class="table">
       <thead>
          <tr>
