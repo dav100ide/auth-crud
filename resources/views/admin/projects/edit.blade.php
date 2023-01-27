@@ -3,8 +3,8 @@
 @section('content')
     <h1>Modifica Il Progetto: {{$project->name}}</h1>
    <form action="{{ route('admin.projects.update', $project) }}" method="POST" enctype="multipart/form-data">
-      @method('PUT')
       @csrf
+      @method('PUT')
       <div class="mb-3">
          <label for="name" class="form-label">Nome</label>
          <input type="text" class="form-control" id="name" name="name" value="{{old('name', $project->name)}}">
@@ -15,8 +15,8 @@
       </div>
       <div class="mb-3">
          <label for="description">Descrizione</label>
-         <textarea name="description" id="description" class="form-control">
-            {{old('description')}}
+         <textarea name="description" id="description" class="form-control" >
+            {{old('description', $project->description)}}
          </textarea>
       </div>
       <div class="mb-3">
