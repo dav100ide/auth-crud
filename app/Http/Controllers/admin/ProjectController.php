@@ -87,7 +87,17 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $data = $request->validated();
+
+        $project->slug = Str::slug($data['name']);
+
+        if (isset($data['cover_image'])) {
+            Storage::disk('public')->delete($project->cover_image);
+            $data['cover_image'] = Storage::disk('public')->put('uploads', $data['cover_image']);
+        }
+
+        $project->update($data);
+        return redirect()->route('admin.projects.index');
     }
 
     /**
